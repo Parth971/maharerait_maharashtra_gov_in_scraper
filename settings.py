@@ -14,6 +14,15 @@ class Settings(BaseSettings):
     headless: bool = Field(default=True, description="Run in headless mode")
     logs_directory: Path = Field(default=BASE_DIR / "logs")
     debug: bool = Field(default=False)
+    max_captcha_attempts: int = Field(
+        default=5, description="Maximum number of captcha attempts"
+    )
+    input_file_path: Path = Field(
+        default=BASE_DIR / "sample.xlsx", description="Input file path"
+    )
+    cache_file_path: Path = Field(
+        default=BASE_DIR / ".cache/map.json", description="Cache file path"
+    )
 
     class Config:
         env_file = ".env"

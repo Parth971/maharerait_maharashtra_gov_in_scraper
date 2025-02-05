@@ -4,6 +4,8 @@ capsolver
 pydantic-settings
 pytz
 filelock
+pandas
+openpyxl
 
 # chrome_extension_python
 # capsolver_extension_python
