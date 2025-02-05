@@ -1,0 +1,10 @@
+botasaurus
+capsolver
+2captcha-python
+pydantic-settings
+pytz
+filelock
+
+# chrome_extension_python
+# capsolver_extension_python
+# twocaptcha_extension_python
