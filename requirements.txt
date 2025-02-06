@@ -6,7 +6,3 @@ pytz
 filelock
 pandas
 openpyxl
-
-# chrome_extension_python
-# capsolver_extension_python
-# twocaptcha_extension_python

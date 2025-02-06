@@ -72,12 +72,12 @@ def scrape_html(driver: Driver, data: Dict[str, Any]) -> str:
         code = solve(str(filepath))
 
         captcha_ele = driver.select("input[name=captcha]")
-        captcha_ele.type(code, wait=5)
+        captcha_ele.type(code)
 
         submit_btn = driver.get_element_containing_text("Submit")
-        submit_btn.humane_click(wait=5)
+        submit_btn.humane_click()
 
-        time.sleep(2)
+        time.sleep(1)
 
         invalid_captcha = driver.get_element_containing_text("Invalid Captcha")
         if invalid_captcha is None:
@@ -88,7 +88,7 @@ def scrape_html(driver: Driver, data: Dict[str, Any]) -> str:
         ScraperLog.error(f"Invalid captcha, Retrying ({attempt})th time...")
         ok_btn = driver.get_element_containing_text("OK")
         ScraperLog.debug("Clicking OK button")
-        ok_btn.humane_click(wait=5)
+        ok_btn.humane_click()
         time.sleep(1)
 
     filepath.unlink(missing_ok=True)
