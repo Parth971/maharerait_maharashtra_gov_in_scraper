@@ -41,20 +41,15 @@ class CacheProjectLink:
         bt.write_json(cls.map_, str(settings.cache_file_path))
 
 
-def solve(filepath: str = "canvas.png") -> str:
-    ScraperLog.debug("Solving captcha...")
-    solution = solver.normal(filepath)
-    code: str = solution["code"]
-    ScraperLog.debug(f"Solved captcha with code: {code}")
-    return code
-
-
 @browser(
     max_retry=1,
     reuse_driver=True,
     output=None,
+    headless=settings.headless,
     user_agent=UserAgent.RANDOM,
-    close_on_crash=False,
+    close_on_crash=True,
+    block_images_and_css=True,
+    create_error_logs=False,
 )  # type: ignore
 def scrape_html(driver: Driver, registration_number: str) -> Optional[str]:
     ScraperLog.info(f"Searching for Registration Number: {registration_number}")

@@ -17,11 +17,14 @@ class Settings(BaseSettings):
     max_captcha_attempts: int = Field(
         default=5, description="Maximum number of captcha attempts"
     )
+    cache_file_path: Path = Field(
+        default=BASE_DIR / ".cache/map.json", description="Cache file path"
+    )
     input_file_path: Path = Field(
         default=BASE_DIR / "sample.xlsx", description="Input file path"
     )
-    cache_file_path: Path = Field(
-        default=BASE_DIR / ".cache/map.json", description="Cache file path"
+    input_column_name: str = Field(
+        default="Registration Number", description="Input column name"
     )
 
     class Config:

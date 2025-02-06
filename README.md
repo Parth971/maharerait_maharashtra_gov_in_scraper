@@ -33,6 +33,9 @@ This project uses a `.env` file to manage various settings and credentials. Exam
 CAPTCHA_SOLVER_API_KEY="xxx"
 OUTPUT_DIR="/path_to_directory/output"
 LOGS_DIRECTORY="/path_to_directory/logs"
+PARALLEL=5
+INPUT_FILE_PATH="/path_to_directory/200 projects.xlsx"
+INPUT_COLUMN_NAME="RERA Number"
 # HEADLESS=False  # By default it's True
 # DEBUG=True  # By default it's False
 ```
@@ -42,3 +45,15 @@ Run the script:
 ```sh
 python script.py main
 ```
+
+
+## Stats
+For 200 Registration Numbers:
+
+Total time: 23 sec
+
+Total Captcha Calls: 230
+
+Errors
+- 4 Captcha Solver Error (521) - Handled
+- 1 Captcha Solver Error (520) - Handled
