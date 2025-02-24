@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Optional
 from pydantic import Field
 from pydantic_settings import BaseSettings
 
@@ -25,6 +26,9 @@ class Settings(BaseSettings):
     )
     input_column_name: str = Field(
         default="Registration Number", description="Input column name"
+    )
+    number_of_projects: Optional[int] = Field(
+        default=None, description="Number of projects to scrape"
     )
 
     class Config:

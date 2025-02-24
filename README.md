@@ -43,7 +43,7 @@ INPUT_COLUMN_NAME="RERA Number"
 ## Usage
 Run the script:
 ```sh
-python script.py main
+python main.py
 ```
 
 

@@ -187,6 +187,8 @@ def read_excel(filepath: Path) -> List[Dict[str, Any]]:
     df = pd.read_excel(filepath, sheet_name="Sheet1", usecols=list(columns.keys()))
     df = df.rename(columns=columns)
     data: List[Dict[str, Any]] = df.to_dict(orient="records")
+    if settings.number_of_projects is not None:
+        data = data[: settings.number_of_projects]
     return data
 
 
@@ -226,6 +228,7 @@ def save_as_json(data: List[Dict[str, Any]]) -> None:
 
 if __name__ == "__main__":
     data = read_excel(settings.input_file_path)
+    ScraperLog.info(f"Found {len(data)} projects.")
 
     start_time = time.time()
     links = scrape_project_links(data=data)
